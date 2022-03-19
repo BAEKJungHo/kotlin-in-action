@@ -1,2 +1,1 @@
-# kotlin-in-action
-Kotlin In Action
+# Kotlin In Action
