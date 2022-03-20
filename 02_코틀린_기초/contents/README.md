@@ -6,3 +6,29 @@
 - println() 과 같이 여러 가지 표준 자바 라이브러리 함수를 간결하게 사용할 수 있도록 `wrapper` 를 제공한다.
 - 세미콜론이 필요 없다.
 
+## 변수
+
+- __val : immutable -> 자바의 final 변수__
+  - 기본적으로 val 로 선언하고 꼭 필요할 때만 var 로 바꾸는 것이 좋다.
+  - 변경 불가능한 참조와 변경 불가능한 객체를 부수 효과가 없는 함수와 조합해 사용하면 코드가 함수형 코드에 가까워진다.
+* 
+- __var : mutable__
+
+## 패키지
+
+### 자바
+
+- geometry
+  - example
+    - Main
+  - shapes
+    - Rectangle
+    - RectangleUtil
+
+### 코틀린
+
+- geometry
+  - example.kt
+  - shapes.kt
+
+> 코틀린에서는 .kt 파일이 자바의 패키지를 의미하기도 한다.
