@@ -9,6 +9,10 @@
 - [Korea Slack](https://kotlinkr.slack.com/)
   - https://kotlinkr.herokuapp.com 에서 초대 받을 수 있음
 
+## 유용한 블로그
+
+- https://codechacha.com/ko/category/kotlin
+
 ## 코틀린의 철학
 
 __코틀린은 간결하고 실용적이며, 자바 코드와의 상호 운용성(Interoperability) 을 중시한다.__
