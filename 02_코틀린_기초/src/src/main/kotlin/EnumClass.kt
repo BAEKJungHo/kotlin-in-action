@@ -40,3 +40,25 @@ fun Request.getBody() = when(val response = executeRequest()) {
     is HttpError -> throw HttpException(response.status)
 }
  */
+
+enum class ProtocolState {
+    WAITING {
+        override fun signal() = TALKING
+    },
+
+    TALKING {
+        override fun signal() = WAITING
+    };
+
+    abstract fun signal(): ProtocolState
+}
+
+enum class RGB { RED, GREEN, BLUE }
+
+inline fun <reified T : Enum<T>> printAllValues() {
+    print(enumValues<T>().joinToString { it.name })
+}
+
+fun test() {
+    printAllValues<RGB>()
+} // prints RED, GREEN, BLUE

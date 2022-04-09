@@ -1,4 +1,5 @@
 import java.io.BufferedReader
+import java.io.InputStreamReader
 
 // 코틀린의 try 키워드는 if 나 when 처럼 식(Expression) 이다. 따라서 try 의 값을 변수에 대입할 수 있다.
 // 다른 최신 JVM 언어와 마찬가지로 코틀린도 Checked Exception 과 UnChecked Exception 를 구별하지 않는다.
@@ -9,8 +10,6 @@ fun readNumber(reader: BufferedReader) {
     } catch (e: NumberFormatException) {
         return
     }
-
-    println(number)
 }
 
 // catch 에서 값 반환하기
@@ -22,4 +21,26 @@ fun readNumber2(reader: BufferedReader) {
     }
 
     println(number)
+}
+
+// Result 와 runCatching
+// Result 는 동작이 성공하든 실패하든 동작의 결과를 캡슐화해서 나중에 처리될 수 있도록 하는 것이 목적이다
+
+// NumberFormatException 발생 가능성이 있는 함수
+fun read(reader: BufferedReader): Int {
+//    return reader.readLine().toInt()
+    throw NumberFormatException()
+}
+
+fun exceptionHandling() {
+    val reader = BufferedReader(InputStreamReader(System.`in`))
+    runCatching {
+        read(reader)
+    }.onSuccess {
+        println("do Something")
+    }.onFailure {
+        e -> e.printStackTrace()
+    }.also {
+        println("do finally here")
+    }
 }
