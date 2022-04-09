@@ -29,18 +29,32 @@ fun readNumber2(reader: BufferedReader) {
 // NumberFormatException 발생 가능성이 있는 함수
 fun read(reader: BufferedReader): Int {
 //    return reader.readLine().toInt()
-    throw NumberFormatException()
+    throw NullPointerException()
 }
 
 fun exceptionHandling() {
     val reader = BufferedReader(InputStreamReader(System.`in`))
-    runCatching {
+//    runCatching {
+//        read(reader)
+//    }.onSuccess {
+//        println("do Something")
+//    }.onFailure {
+//        e -> e.printStackTrace()
+//    }.also {
+//        println("do finally here")
+//    }
+
+
+    val response = runCatching {
         read(reader)
-    }.onSuccess {
+    }.mapCatching {
+        // 성공 시
         println("do Something")
-    }.onFailure {
-        e -> e.printStackTrace()
-    }.also {
-        println("do finally here")
-    }
+    }.recoverCatching {
+        e -> when(e) {
+            is NumberFormatException -> "do Something"
+            else -> e.printStackTrace()
+        }
+    }.getOrDefault("default")
 }
+
