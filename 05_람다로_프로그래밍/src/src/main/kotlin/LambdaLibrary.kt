@@ -1,11 +1,12 @@
 import java.awt.Button
 
 data class Person(
+    val name: String? = null,
     val age: Int
 )
 
 
-val people = listOf(Person(10), Person(20))
+val people = listOf(Person("Alice", 27), Person("Bob", 31))
 
 fun test() {
     // 람다 호출 비용은 아무 부가 비용이 들지 않는다. 프로그램의 기본 구성 요소와 비슷한 성능을 낸다.
