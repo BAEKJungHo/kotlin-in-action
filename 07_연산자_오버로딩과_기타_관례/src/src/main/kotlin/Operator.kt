@@ -1,3 +1,5 @@
+import dto.Point
+
 /**
  * # 오버로딩 가능한 이항 산술 연산자
  * a * b = times
@@ -11,14 +13,6 @@
  *
  * 따라서, p * 1.5 외에 1.5 * p 라고도 쓸 수 있어야 한다면 추가로 operator 를 만들어 줘야 한다.
  */
-data class Point(
-    val x: Int,
-    val y: Int,
-) {
-    operator fun plus(other: Point): Point {
-        return Point(x + other.x, y + other.y)
-    }
-}
 
 // 연산자를 확장 함수로 정의하기
 operator fun Point.plus(other: Point): Point {
